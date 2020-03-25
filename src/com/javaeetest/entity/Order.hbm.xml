@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.javaeetest.entity.Order" table="tb_orders" catalog="BookStore"
+    schema="dbo">
+        <id name="orderId" type="java.lang.Integer">
+            <column name="orderId" />
+            <generator class="native" />
+        </id>
+        <property name="orderNumber" type="java.lang.String">
+            <column name="orderNumber" length="30" not-null="true" />
+        </property>
+        <many-to-one name="user" class="com.javaeetest.entity.User"
+        	cascade="save-update" fetch="select" column="userId" not-null="true" lazy="false"/>
+        
+         <property name="orderTime" type="java.sql.Timestamp">
+            <column name="orderTime" not-null="true" />
+        </property>
+        
+        <property name="orderStatus" type="java.lang.Integer">
+            <column name="orderStatus" not-null="true" />
+        </property>
+        
+        <property name="totalMoney" type="java.lang.Float">
+            <column name="totalMoney" not-null="false" />
+        </property>
+        
+        <property name="addressId" type="java.lang.String">
+            <column name="addressId" not-null="false" />
+        </property>
+        
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.javaeetest.entity.Book" table="tb_book" catalog="BookStore"
+    	schema="dbo">
+        <id name="bookId" type="java.lang.Integer">
+            <column name="bookId" />
+            <generator class="native" />
+        </id>
+        <property name="bookISBN" type="java.lang.String">
+            <column name="bookISBN" length="20" not-null="true" />
+        </property>
+        <property name="bookName" type="java.lang.String">
+        	<column name="bookName" length="20" not-null="true" />
+        </property>
+        <property name="bookAuthor" type="java.lang.String">
+        	<column name="bookAuthor" length="20" not-null="true" />
+        </property>
+        <property name="bookPress" type="java.lang.String">
+        	<column name="bookPress" length="20" not-null="true" />
+        </property>
+        <property name="bookPicture" type="java.lang.String">
+        	<column name="bookPicture" length="20" not-null="true" />
+        </property>
+        <property name="bookAmount" type="java.lang.Integer">
+        	<column name="bookAmount" not-null="true" />
+        </property>
+        <many-to-one name="type" class="com.javaeetest.entity.BookType" 
+        	cascade="save-update" fetch="select" column="typeId" not-null="true" lazy="false"/>
+        <property name="bookShelveTime" type="java.sql.Date">
+        	<column name="bookShelveTime" not-null="true" />
+        </property>
+        <property name="bookPrice" type="java.lang.Float">
+        	<column name="bookPrice" not-null="true" />
+        </property>
+        <property name="bookRemark" type="java.lang.String">
+        	<column name="bookRemark" not-null="false" />
+        </property>
+        <property name="bookSales" type="java.lang.Integer">
+        	<column name="bookSales" not-null="true" />
+        </property>
+        
+         <property name="bookSalesAmount" type="java.lang.Integer">
+        	<column name="bookSalesAmount" not-null="false" />
+        </property>
+        <property name="bookStatus" type="java.lang.Integer">
+        	<column name="bookStatus" not-null="false" />
+        </property>
+        
+         <property name="bargainStatus" type="java.lang.Integer">
+        	<column name="bargainStatus" not-null="false" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.javaeetest.entity.User" table="tb_user" catalog="BookStore"
+    schema="dbo">
+        <id name="userId" type="java.lang.Integer">
+            <column name="userId" />
+            <generator class="native" />
+        </id>
+        <property name="userName" type="java.lang.String">
+            <column name="userName" length="20" not-null="true" />
+        </property>
+        <property name="userPassword" type="java.lang.String">
+            <column name="userPassword" length="50" not-null="true" />
+        </property>
+        
+         <property name="userEmail" type="java.lang.String">
+            <column name="userEmail" length="30" not-null="true" />
+        </property>
+        
+        <property name="userNickName" type="java.lang.String">
+            <column name="userNickName" length="20" not-null="false" />
+        </property>
+        
+        <property name="userSex" type="java.lang.String">
+            <column name="userSex"  length="20" not-null="true" />
+        </property>
+        
+         <property name="userPhone" type="java.lang.String">
+            <column name="userPhone" length="20" not-null="true" />
+        </property>
+        
+         <property name="userRemark" type="java.lang.String">
+            <column name="userRemark" length="200" not-null="true" />
+        </property>
+        
+        
+    </class>
+</hibernate-mapping>

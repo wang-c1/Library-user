@@ -1,0 +1,215 @@
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean id="candy" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.microsoft.sqlserver.jdbc.SQLServerDriver">
+		</property>
+		<property name="url"
+			value="jdbc:sqlserver://127.0.0.1:1433; DatabaseName=BookStore">
+		</property>
+		<property name="username" value="sa"></property>
+		<property name="password" value="sa"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="candy" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect
+				</prop>
+				<prop key="hibernate.show_sql">
+					true
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/javaeetest/entity/Manager.hbm.xml</value>
+				<value>com/javaeetest/entity/BookType.hbm.xml</value>
+				<value>com/javaeetest/entity/Book.hbm.xml</value>
+				<value>com/javaeetest/entity/User.hbm.xml</value>
+				<value>com/javaeetest/entity/Bargain.hbm.xml</value>
+				<value>com/javaeetest/entity/Order.hbm.xml</value>
+				<value>com/javaeetest/entity/OrdersBook.hbm.xml</value>
+				<value>com/javaeetest/entity/Address.hbm.xml</value>
+				<value>com/javaeetest/entity/UserAddress.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	<bean id="managerDao" class="com.javaeetest.dao.impl.ManagerDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+		
+	<bean id="managerService" class="com.javaeetest.service.impl.ManagerServiceImpl"
+		p:managerDao-ref="managerDao" />
+		
+	<bean id="ManagerAction" class="com.javaeetest.action.ManagerAction"  scope="prototype">
+       <property name="managerService">
+           <ref bean="managerService" />
+       </property>  
+    </bean>
+		
+		
+	<bean id="userDao" class="com.javaeetest.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+		
+	<bean id="userService" class="com.javaeetest.service.impl.UserServiceImpl"
+		p:userDao-ref="userDao" />
+		
+		
+	<bean id="UserAction" class="com.javaeetest.action.UserAction"  scope="prototype">
+       <property name="userService">
+           <ref bean="userService" />
+       </property>  
+    </bean>
+
+	<bean id="EnrollAction" class="com.javaeetest.action.EnrollAction"  scope="prototype">
+       <property name="userService">
+           <ref bean="userService" />
+       </property>     
+    </bean>
+    
+    		
+	<bean id="bookDao" class="com.javaeetest.dao.impl.BookDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="bargainDao" class="com.javaeetest.dao.impl.BargainDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+		
+		<bean id="bookTypeDao" class="com.javaeetest.dao.impl.BookTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+		
+		
+	<bean id="bookService" class="com.javaeetest.service.impl.BookServiceImpl">
+		<!-- p:bookDao-ref="bookDao"  -->
+		<property name="bookDao" ref="bookDao"/>
+		<property name="bargainDao" ref="bargainDao"/>
+		<property name="bookTypeDao" ref="bookTypeDao"/>
+		</bean>
+		
+		
+		
+	<bean id="PopularBookAction" class="com.javaeetest.action.PopularBookAction"  scope="prototype">
+       <property name="bookService">
+           <ref bean="bookService" />
+       </property>  
+    </bean>
+    
+    <bean id="LatestBookAction" class="com.javaeetest.action.LatestBookAction"  scope="prototype">
+       <property name="bookService">
+           <ref bean="bookService" />
+       </property>  
+    </bean>
+     <bean id="BargainBookAction" class="com.javaeetest.action.BagainBookAction" scope="prototype">
+    <property name="bookService">
+           <ref bean="bookService" />
+       </property>  
+    
+    </bean>
+    
+    <bean id="SingleBookAction" class="com.javaeetest.action.SingleBookAction"  scope="prototype">
+       <property name="bookService">
+           <ref bean="bookService" />
+       </property>  
+    </bean>
+     <bean id="ShoppingCartAction" class="com.javaeetest.action.ShoppingCartAction"  scope="prototype">
+      <property name="bookService">
+           <ref bean="bookService" />
+       </property>  
+    </bean>
+    
+    
+     <bean id="OrderAction" class="com.javaeetest.action.OrderAction"  scope="prototype">
+      <property name="orderService">
+           <ref bean="orderService" />
+       </property>  
+    </bean>
+    
+    <bean id="orderDao" class="com.javaeetest.dao.impl.OrderDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	
+	 <bean id="ordersBookDao" class="com.javaeetest.dao.impl.OrdersBookDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+		
+	<bean id="orderService" class="com.javaeetest.service.impl.OrderServiceImpl">
+		<property name="orderDao" ref="orderDao"/>
+		<property name="ordersBookDao" ref="ordersBookDao"/>
+		</bean>
+    
+     <bean id="OrdersAction" class="com.javaeetest.action.OrdersAction"  scope="prototype">
+      <property name="orderService">
+           <ref bean="orderService" />
+       </property> 
+    </bean>
+   
+   
+    
+    <bean id="SingleOrdersAction" class="com.javaeetest.action.SingleOrdersAction"  scope="prototype">
+      <property name="bookService">
+           <ref bean="bookService" />
+       </property> 
+        <property name="orderService">
+           <ref bean="orderService" />
+       </property> 
+       <property name="addressService">
+           <ref bean="addressService" />
+       </property> 
+    </bean>
+    <bean id="OneTypeAction" class="com.javaeetest.action.OneTypeAction"  scope="prototype">
+      <property name="bookService">
+           <ref bean="bookService" />
+       </property> 
+    </bean>
+    
+    
+     <bean id="BookTypeAction" class="com.javaeetest.action.BookTypeAction"  scope="prototype">
+      <property name="bookService">
+           <ref bean="bookService" />
+       </property> 
+       
+       
+    </bean>
+    <bean id="addressDao" class="com.javaeetest.dao.impl.AddressDaoImpl">
+     <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="addressService" class="com.javaeetest.service.impl.AddressServiceImpl" 
+    p:addressDao-ref="addressDao"/>
+    <bean id="AddressAction" class="com.javaeetest.action.AddressAction" scope="prototype">
+     <property name="addressService">
+          <ref bean="addressService"/>
+     </property>
+     <property name="userAddressService">
+          <ref bean="userAddressService"/>
+     </property>
+    </bean>
+    
+    <bean id="userAddressDao" class="com.javaeetest.dao.impl.UserAddressDaoImpl">
+     <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="userAddressService" class="com.javaeetest.service.impl.UserAddressServiceImpl" 
+    p:userAddressDao-ref="userAddressDao"/>
+    
+    
+      
+     <bean id="UpdateCartAction" class="com.javaeetest.action.UpdateCartAction"  scope="prototype">
+       
+    </bean>
+   
+</beans>

@@ -1,0 +1,31 @@
+
+/*------------------------------------------------------------------
+[1. Max Width: 979px]
+*/
+
+@media (max-width: 979px) {
+	
+	#content {
+		padding-top: 15px;	
+	}
+	
+}
+
+
+
+
+/*------------------------------------------------------------------
+[2. Max Width: 767px]
+*/
+
+@media (max-width: 767px) {
+	
+	#content {
+		padding-top: 0;	
+	}
+	
+	.sidebar-extra {
+		display: none;
+	}
+	
+}

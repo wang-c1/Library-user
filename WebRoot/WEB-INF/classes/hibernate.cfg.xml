@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 配置数据库连接 -->
+		<property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="connection.url">jdbc:sqlserver://localhost:1433; DatabaseName=BookStore</property>
+		<property name="connection.username">sa</property>		<!-- 指定数据库用户名 -->
+		<property name="connection.password">sa</property>		<!-- 指定数据库密码 -->
+		<property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+		<!-- 根据映射文件自动创建表（第一次创建，以后是修改） -->
+		<property name="hbm2ddl.auto">update</property>
+		<property name="javax.persistence.validation.mode">none</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="jdbc.use_scrollable_resultset">false</property>
+		<!-- 配置映射文件 -->
+		<mapping resource="com/javaeetest/entity/Manager.hbm.xml"/>
+		<mapping resource="com/javaeetest/entity/BookType.hbm.xml"/>
+		<mapping resource="com/javaeetest/entity/Book.hbm.xml"/>
+		<mapping resource="com/javaeetest/entity/Bargain.hbm.xml"/>
+		<mapping resource="com/javaeetest/entity/User.hbm.xml"/>
+		<mapping resource="com/javaeetest/entity/Orders.hbm.xml"/>
+
+		
+	</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,109 @@
+
+#login-container {
+	width: 425px;
+	margin: 120px auto 0;
+	
+}
+
+
+
+
+/*------------------------------------------------------------------
+[2. Header / #login-header]
+*/
+
+#login-header {
+	
+	padding: 12px 20px;
+	margin-bottom: 1em;
+	
+	background: #3C4049;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4A515B', endColorstr='#3C4049'); /*Filters主要是运用在图片上，以实现一些特效*/	
+	border-radius: 5px;  /*向 div 元素添加圆角边框*/
+	
+	text-shadow: 1px 1px 2px rgba(0,0,0,.5);  /*基础的文本阴影效果*/
+}
+
+#login-header h3 {
+	margin-bottom: 0;
+	
+	font-size: 16px;
+	color: #FFF;
+	
+	text-decoration: 1px 1px 2px rgba(0,0,0,.4);
+}
+
+
+
+/*------------------------------------------------------------------
+[3. Content / #login-content]
+*/
+
+#login-content {
+	padding: 20px;
+	
+	background: #FFF;
+	
+	border: 1px solid #DDD;
+	
+	border-radius: 5px;
+	
+	box-shadow: 0 0 6px rgba(0,0,0,.10);
+}
+
+#login-content input {
+	width: 96%;
+	padding: 2% 2%;
+}
+
+#login-content #remember-me {
+	margin-top: 3px;	
+}
+
+#login-content #remember-me input {
+	display: inline-block;
+	
+	width: auto;
+	padding: 0;
+}
+
+#login-content #remember-me label {
+	position: relative;
+	top: 2px;
+	
+	display: inline-block;
+	
+	margin-left: .5em;
+}
+
+
+
+/*------------------------------------------------------------------
+[4. Extra / #login-extra]
+*/
+
+#login-extra {
+	margin-top: 1.5em;
+	
+	text-align: center;
+}
+
+#login-extra p {
+	font-size: 12px;
+	
+	color: #888;
+}
+
+
+
+
+/*------------------------------------------------------------------
+[5. Max Width: 480px]
+*/
+
+@media (max-width: 480px) {
+	#login-container {
+		width: 100%;
+		margin: 40px auto 0;
+	}
+}

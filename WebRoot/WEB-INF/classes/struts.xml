@@ -1,0 +1,132 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name=" struts.devMode" value="true"></constant>
+	<constant name="struts.i18n.encoding" value="gb2312" />
+	<constant name="struts.custom.i18n.resources" value="globalMessages" />
+
+	<package name="default" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="userLoginCheck"
+				class="com.javaeetest.interceptor.UserLoginCheck">
+			</interceptor>
+		</interceptors>
+		<global-results>
+			<result name="nologin" type="redirect">/login1.jsp </result>
+		</global-results>
+		<action name="login" class="ManagerAction">
+			<result name="success" type="redirect">/manage/manageWelcome.jsp</result>
+			<result name="error">/manage/error.jsp</result>
+			<result name="input">/manage/manageLogin.jsp</result>
+		</action>
+
+		<!-- 用户登录 -->
+		<action name="loginAction" class="UserAction">
+			<result name="fail">/login1.jsp</result>
+			<result name="success" type="redirect">/index.jsp</result>
+		</action>
+		
+		<!--更改密码  -->
+		<action name="changeAction" class="UserAction" method="changePassword">
+
+			<result name="fail">/changePassword.jsp</result>
+			<result name="success" type="redirect">/login1.jsp</result>
+		</action>
+		
+		<!--用户注册  -->
+		<action name="enrollAction" class="EnrollAction">
+			<result name="input">/enroll1.jsp </result>
+			<result name="success">/login1.jsp</result>
+
+		</action>
+
+		<!--按销量排行  -->
+		<action name="popularBookAction" class="com.javaeetest.action.PopularBookAction"
+			method="execute">
+
+		</action>
+
+		<action name="showShopingCart" class="com.javaeetest.action.ShoppingCartAction"
+			method="showShopingCart">
+			<result name="success" type="redirect">/shoppingCart.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="userLoginCheck"></interceptor-ref>
+		</action>
+
+		<!--加入购物车  -->
+		<action name="shoppingCartAction" class="com.javaeetest.action.ShoppingCartAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="userLoginCheck"></interceptor-ref>
+			<result name="login" type="redirect">/login1.jsp</result>
+			
+		</action>
+
+		<!--最新上架图书  -->
+		<action name="latestBookAction" class="com.javaeetest.action.LatestBookAction"
+			method="execute">
+
+		</action>
+
+		<!--特价图书  -->
+		<action name="bargainBookAction" class="com.javaeetest.action.BargainBookAction"
+			method="execute">
+		</action>
+		
+		<!--商品详情  -->
+		<action name="singleBookAction" class="com.javaeetest.action.SingleBookAction"
+			method="execute">
+		</action>
+
+		<!--确认购买  -->
+		<action name="orderAction" class="com.javaeetest.action.OrderAction"
+			method="execute">
+			<result name="success" type="redirect">/success.jsp</result>
+			<result name="null" type="redirect">/error.jsp</result>
+		</action>
+
+		<!--所有订单  -->
+		<action name="ordersAction" class="com.javaeetest.action.OrdersAction"
+			method="execute">
+		</action>
+		
+		<action name="showAllOrders" class="com.javaeetest.action.OrdersAction" method="showAllOrders">
+			<result name="success">/allOrders.jsp</result>
+			<interceptor-ref name="userLoginCheck"></interceptor-ref>
+		</action>
+
+		<!--订单详细信息  -->
+		<action name="singleOrdersAction" class="com.javaeetest.action.SingleOrdersAction"
+			method="execute">
+		</action>
+
+		<!--查询图书  -->
+		<action name="oneTypeAction" class="com.javaeetest.action.OneTypeAction"
+			method="execute">
+			<result name="oneType">/oneType.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!--图书类别显示  -->
+		<action name="bookTypeAction" class="com.javaeetest.action.BookTypeAction"
+			method="execute">
+		</action>
+
+		<!--新增收货地址  -->
+      	<action name="addressAction" class="com.javaeetest.action.AddressAction"
+			method="execute">
+			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<!--删除购物车内商品  -->
+		<action name="updateCartAction" class="com.javaeetest.action.UpdateCartAction"
+			method="execute">
+			
+		</action>
+	</package>
+</struts>
+
+

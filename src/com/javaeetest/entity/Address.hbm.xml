@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.javaeetest.entity.Address" table="tb_address" catalog="BookStore"
+    	schema="dbo">
+        <id name="addressId" type="java.lang.String">
+            <column name="addressId" />
+        </id>
+
+        <property name="receiverName" type="java.lang.String">
+        	<column name="receiverName" length="20" not-null="true" />
+        </property>
+        <property name="receiverPhone" type="java.lang.String">
+        	<column name="receiverPhone" length="20" not-null="true" />
+        </property>
+        <property name="province" type="java.lang.String">
+        	<column name="province" length="20" not-null="true" />
+        </property>	
+        <property name="city" type="java.lang.String">
+        	<column name="city" length="20" not-null="true" />
+        </property>
+        <property name="detailedAddress" type="java.lang.String">
+        	<column name="detailedAddress" length="20" not-null="true" />
+        </property>
+
+       
+    </class>
+</hibernate-mapping>

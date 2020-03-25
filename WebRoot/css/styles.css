@@ -1,0 +1,169 @@
+/*以下为全局设置*/
+*{ font-size: 12px; margin: 0px; padding:0px; }
+img{ border: 0px;}
+li{ list-style: none; }
+
+/*以下为指定设置*/
+#top,#bottom,#login,#enroll,#firstPage,#managerLogin,#singleBook,#oneType,#personalInformation,#updatePassword,#shoppingCart,#orders{
+	width: 1400px;
+	background-color: white;
+}
+#logo{
+	
+	margin-top: 20px;
+	width: 200px;
+	
+}
+#logoLink{
+	float: left;
+	width: 650px;
+	margin-top: 20px;
+	text-align: right;
+}
+#searchBook{
+	width:650px;
+	text-align: left;
+	padding-left: 200px;
+}
+#login,#enroll,#managerLogin,#personalInformation,#updatePassword{
+	height: 300px;
+	padding-top: 50px;
+}
+#left,ul.leftBook,li.leftBestSelling,li.leftBookAuthor,li.leftBookPress,li.leftBookType{
+	width: 180px;
+}
+#left{
+	float: left;
+	padding-top: 10px;
+}
+li.leftBestSelling{
+	background-color: #FF6600;
+	font-weight: bold;
+	color: yellow;
+	margin-bottom: 10px;
+	padding: 5px;
+	text-align: left
+}
+li.leftBookPicture{
+	width: 50px;
+	float: left;
+}
+li.leftBookPicture img{
+	margin-left:5px;
+	width: 45px;
+	height:60px;
+}
+li.leftBookName{
+	width: 130px;
+	float: left
+}
+li.leftBookName,li.leftBookAuthor,li.leftBookPress,li.leftBookType{
+	text-align: left;
+	padding-left: 5px;
+}
+#allBook,#bookInfor,#shoppingBook,#ordersInfor{
+	width: 700px;
+	float: left;
+	padding-top: 5px;
+	margin-left: 235px;
+	height: 700px;
+}
+ul.allBookUl,ul.singleBookUl{
+	width: 700px;
+	float: left;
+}
+ul.singleBookUl{
+	padding-left:10px;
+	padding-top: 10px;
+}
+li.allBookHead,li.singleBookName,li.shoppingBookHead{
+	width: 700px;	
+	background-color: #66cc33;
+	text-align: left;
+	padding: 5px;
+	font-weight: bold;
+	color:yellow;
+	margin-bottom: 10px;
+}
+li.allBookPicture,li.singleBookPicture{
+	width: 140px;
+	float: left;
+	height: 120px;
+}
+li.allBookPicture img,li.singleBookPicture img{
+	width: 90px;
+	height: 104px;
+}
+li.allBookInfor{
+	width: 150px;
+	float: left;
+	padding-left: 0px;
+	text-align: left;
+	height: 120px;
+}
+li.singleBookInfor{
+	width: 550px;
+	float: left;
+	padding-left: 10px;
+	text-align: left;
+}
+li.leftBestSelling a{
+	margin-left: 40px;
+	width: 50px;
+}
+li.allBookHead a{
+	margin-left: 580px;
+	width: 50px;	
+}
+li.bookName,li.bookPrice,li.sequence,li.ordersNumber,li.isDeal,li.ordersTime,li.bookPress,li.bookAmount2{
+	padding-top: 5px;
+}
+li.shoppingBookHead{
+	margin: 0px;
+}
+li.sequence{
+	width: 50px;
+	float: left;
+}
+li.bookName,li.ordersNumber{
+	width: 200px;
+	float: left;
+}
+li.bookPrice,li.isDeal{
+	width: 100px;
+	float: left;
+}
+li.bookAmount,li.ordersTime,li.bookAmount2{
+	width: 250px;
+	float: left;
+}
+li.delete,li.deleteOrders,li.bookPress{
+	width: 100px;
+	float: left;
+}
+
+ul.shoppingBookUl,ul.singleOrders{
+	list-style:none;
+	width: 702px;
+}
+ul.shoppingBookUl li,ul.singleOrders{
+	height: 25px;
+}
+a.more{
+	color: white;
+}
+a.bookName{
+	color: maroon;
+}
+a.aboutBook{
+	color: blue;
+}
+a.aboutOrders{
+	color: white;
+}
+a.more:VISITED,a.more:LINK ,a.bookName:VISITED,a.bookName:LINK ,a.aboutBook:VISITED,a.aboutBook:LINK,a.aboutOrders:VISITED,a.aboutOrders:LINK{
+	text-decoration: none;
+}
+a.more:ACTIVE,a.more:HOVER ,a.bookName:ACTIVE,a.bookName:HOVER ,a.aboutBook:ACTIVE,a.aboutBook:HOVER,a.aboutOrders:ACTIVE,a.aboutOrders:HOVER{
+	text-decoration: underline;
+}
