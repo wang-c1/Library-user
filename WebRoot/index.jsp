@@ -15,8 +15,12 @@
 				
 				<s:iterator value="#request.bestSellingBook">
 					
-					<li class="allBookPicture">
+					<!-- <li class="allBookPicture">
 						<a href="goods2.jsp?bookId=<s:property value="bookId" />"><img src='../upload/<s:property value="bookPicture" />'/></a> 
+					</li>-->
+					<li class="allBookPicture">
+					<a href="goods2.jsp?bookId=<s:property value="bookId" />">
+					<img src='upload/<s:property value="bookPicture" />' /></a>
 					</li>
 				
 					<li class="allBookInfor">
