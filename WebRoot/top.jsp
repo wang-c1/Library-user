@@ -38,6 +38,14 @@ a:HOVER {
 	border-style: none;
 }
 
+.ts_seled {
+    color: #F00;
+}
+ 
+.ts_sel {
+   color:#666;
+}
+
 .input {
 	width: 300px;
 	height: 35px;
@@ -45,6 +53,27 @@ a:HOVER {
 	border-style: solid;
 	border-width: 1px;
 	list-style: none;
+}
+.move{
+    height: 4px;
+    width: 110px;
+    border-top: 4px solid red;/*只需要将上边显示出来*/
+    position: absolute;
+    left: 0;
+    top: 31px;
+    transition: left .2s ease-in-out 0s;/*包含四个过度属性：执行变换属性、执行时间、速率、延迟*/
+    -webkit-transition: left .2s ease-in-out 0s;/*chrome和safari*/
+    -moz-transition: left .2s ease-in-out 0s;/*firefox*/
+    -o-transition: left .2s ease-in-out 0s;/*opera*/
+}
+li:nth-child(1):hover~ .move{    /*li元素的父元素的第一个子元素，当鼠标停留其上时，move元素的left属性改变*/
+    left: 210px;
+}
+li:nth-child(2):hover~ .move{
+    left: 328px;
+}
+li:nth-child(3):hover~ .move{
+    left: 446px;
 }
 </style>
 
@@ -61,14 +90,14 @@ a:HOVER {
 				<div class="shop_hd_topNav_all_left">
 					<s:if test="%{#session.loginUser == null}">
 						<p>
-							您好，欢迎来到<b><a href="/">冰菓书店</a></b>[<a href="login1.jsp">登录</a>][<a
+							您好，欢迎光临<b><a href="/">铭文书店</a></b>[<a href="login1.jsp">登录</a>][<a
 								href="enroll1.jsp">注册</a>]
 						</p>
 					</s:if>
 					<s:else>
 						<p>
 							<s:property value="#session.loginUser.userName" />
-							您好，欢迎来到<b><a href="allBook.jsp">冰菓书店</a></b>
+							您好，欢迎光临<b><a href="allBook.jsp">铭文书店</a></b>
 						</p>
 					</s:else>
 				</div>
@@ -138,9 +167,13 @@ a:HOVER {
 	<!-- TopHeader Center -->
 	<div class="shop_hd_header">
 		<div class="shop_hd_header_logo">
+		    <img src="images/logo.png" alt="" width="350" height="90"/>
+		    <!-- 
 			<h1 class="logo">
-				<a href="/"><img src="images/logo.png" alt="" /></a><span>冰菓</span>
+				<a href="/"><img src="images/logo.png" alt="" width="350" height="90"/></a><span>冰菓</span>
+				<!-- <img src="images/logo.png" alt="" />-->
 			</h1>
+			-->
 		</div>
 		<div class="shop_hd_header_search">
 			
@@ -192,15 +225,18 @@ a:HOVER {
 
 
 
-
+     <div class="nav-box">
 		<ul class="shop_hd_menu_nav">
 			<li class="link"><a href="allBook.jsp"><span>销量排行</span></a></li>
 			<li class="link"><a href="newBook.jsp"><span>最新上架</span></a></li>
 			<li class="link"><a href="bargainBook.jsp"><span>特价邀约</span></a></li>
+			<li class="move"></li>
 		</ul>
+		<div class="nav-line" ></div>
+	</div>
 
 
-
+        <script type="text/javascript" src="js/jquery.js"></script>
 		<SCRIPT type="text/javascript">
 			function searchBook() {
 				var searchType = "";

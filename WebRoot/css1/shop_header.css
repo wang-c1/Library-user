@@ -43,9 +43,9 @@
 /* Header Menu */
 .shop_hd_menu{width:1000px; margin:0 auto; height:35px; background:url('../images/nc_nav.png') repeat-x left top; border-radius:5px 5px 0 0; position:relative;}
 .shop_hd_menu_nav{width:790px; padding-left:210px; height:25px; line-height:35px; font-size:14px;}
-.shop_hd_menu_nav li{float:left;}
+.shop_hd_menu_nav li{float:left;width:118px;height:35px;}
 .shop_hd_menu_nav li.current_link a span{background:url('../images/nc_nav.png') repeat-x left -110px;position: relative; left:1px;}
-.shop_hd_menu_nav li a{margin:0; font-size:14px; font-weight:bold; color:#FFF;}
+.shop_hd_menu_nav li a{margin:0; font-size:14px; font-weight:bold; color:#FFF;width:118px;height:35px;}
 .shop_hd_menu_nav li a:hover span{background:url('../images/nc_nav.png') repeat-x left -110px;}
 .shop_hd_menu_nav li a span{display: inline-block; height:35px; line-height:35px; padding:0 25px; background:url('../images/nc_nav.png') no-repeat left -35px;}
 
