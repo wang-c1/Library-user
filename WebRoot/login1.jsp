@@ -70,7 +70,7 @@
 	
 	<div class="footer clear wrap1000">
 		<p> <a href="">首页</a> | <a href="">招聘英才</a> | <a href="">广告合作</a> |  <a href="">联系我们</a></p>
-		<p>Copyright 2004-2013 itcast Inc.,All rights reserved.</p>
+		<p>Copyrights Reserved harbin institute of technology at WeiHai.</p>
 	</div>
 	<script src="./js/login.js"></script>
 	<script src="./js/MD5.js"></script>

@@ -57,14 +57,14 @@ a:HOVER {
 				<div class="shop_hd_topNav_all_left">
 					<s:if test="%{#session.loginUser == null}">
 						<p>
-							您好，欢迎来到<b><a href="/">冰菓书店</a></b>[<a href="login1.jsp">登录</a>][<a
+							您好，欢迎来到<b><a href="/">铭文书店</a></b>[<a href="login1.jsp">登录</a>][<a
 								href="enroll1.jsp">注册</a>]
 						</p>
 					</s:if>
 					<s:else>
 						<p>
 							<s:property value="#session.loginUser.userName" />
-							您好，欢迎来到<b><a href="allBook.jsp">冰菓书店</a></b>
+							您好，欢迎来到<b><a href="allBook.jsp">铭文书店</a></b>
 						</p>
 					</s:else>
 				</div>

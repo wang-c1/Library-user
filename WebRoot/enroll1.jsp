@@ -63,6 +63,13 @@
 					</dl>
 					
 					<dl>
+						<dt>备注</dt>
+						<dd><input type="text" name="userRemark" class="text" 
+						     
+						/></dd>
+					</dl>
+					
+					<dl>
 						<dt>验证码</dt>
 						<dd><input type = "text" id = "input" name="code" class="text" size="10" style="width:58px;"/>
 						<input type = "button" id="code" onclick="createCode()"/>看不清，<a href="login1.jsp">换一张</a>

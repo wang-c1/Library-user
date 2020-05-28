@@ -1,41 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.javaeetest.entity.User" table="tb_user" catalog="BookStore"
-    schema="dbo">
-        <id name="userId" type="java.lang.Integer">
-            <column name="userId" />
-            <generator class="native" />
-        </id>
-        <property name="userName" type="java.lang.String">
-            <column name="userName" length="20" not-null="true" />
-        </property>
-        <property name="userPassword" type="java.lang.String">
-            <column name="userPassword" length="50" not-null="true" />
-        </property>
-        
-         <property name="userEmail" type="java.lang.String">
-            <column name="userEmail" length="30" not-null="true" />
-        </property>
-        
-        <property name="userNickName" type="java.lang.String">
-            <column name="userNickName" length="20" not-null="false" />
-        </property>
-        
-        <property name="userSex" type="java.lang.String">
-            <column name="userSex"  length="20" not-null="true" />
-        </property>
-        
-         <property name="userPhone" type="java.lang.String">
-            <column name="userPhone" length="20" not-null="true" />
-        </property>
-        
-         <property name="userRemark" type="java.lang.String">
-            <column name="userRemark" length="200" not-null="true" />
-        </property>
-        
-        
-    </class>
+ <class catalog="BookStore" name="com.javaeetest.entity.User"
+  schema="dbo" table="tb_user">
+  <id name="userId" type="java.lang.Integer">
+   <column name="userId"/>
+   <generator class="native"/>
+  </id>
+  <property generated="never" lazy="false" name="userName" type="java.lang.String">
+   <column length="20" name="userName" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="userPassword" type="java.lang.String">
+   <column length="50" name="userPassword" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="userEmail" type="java.lang.String">
+   <column length="30" name="userEmail" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="userNickName" type="java.lang.String">
+   <column length="20" name="userNickName" not-null="false"/>
+  </property>
+  <property generated="never" lazy="false" name="userSex" type="java.lang.String">
+   <column length="20" name="userSex" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="userPhone" type="java.lang.String">
+   <column length="20" name="userPhone" not-null="true"/>
+  </property>
+  <property name="userRemark" type="java.lang.String">
+   <column length="200" name="userRemark" not-null="false"/>
+  </property>
+ </class>
 </hibernate-mapping>

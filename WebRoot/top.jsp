@@ -170,7 +170,7 @@ li:nth-child(3):hover~ .move{
 		    <img src="images/logo.png" alt="" width="350" height="90"/>
 		    <!-- 
 			<h1 class="logo">
-				<a href="/"><img src="images/logo.png" alt="" width="350" height="90"/></a><span>冰菓</span>
+				<a href="/"><img src="images/logo.png" alt="" width="350" height="90"/></a><span>铭文</span>
 				<!-- <img src="images/logo.png" alt="" />-->
 			</h1>
 			-->

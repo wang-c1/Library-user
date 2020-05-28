@@ -43,8 +43,8 @@ public class EnrollAction extends ActionSupport implements ModelDriven<User> {
 	public void validate() {
 
 		String patternName = "[a-zA-Z][a-zA-Z0-9]{5,15}";
-		String patternEmail = "\\w+@(\\w+.)+[a-z]{2,3}";
-		String patternTel = "^((13[0-9])|(17[0-9])|(15[0-9])|18[0,5-9])\\d{8}$";
+		//String patternEmail = "\\w+@(\\w+.)+[a-z]{2,3}";
+		//String patternTel = "^((13[0-9])|(17[0-9])|(15[0-9])|18[0,5-9])\\d{8}$";
 
 		if (user.getUserName() == null || "".equals(user.getUserName().trim())) {
 			this.addFieldError("userName", "用户名不能为空!");
@@ -74,17 +74,27 @@ public class EnrollAction extends ActionSupport implements ModelDriven<User> {
 			this.addFieldError("userEmail", "邮箱不能为空!");
 
 		}
+		
 
+		/*
 		if (!Pattern.compile(patternEmail).matcher(user.getUserEmail().trim())
 				.matches()) {
 			this.addFieldError("userEmail", "邮箱输入有误!");
 
 		}
+		*/
+		
+		if ("".equals(user.getUserPhone().trim())) {
+			this.addFieldError("userPhone", "联系电话不能为空!");
+
+		}
+		/*
 		if (!Pattern.compile(patternTel).matcher(user.getUserPhone().trim())
 				.matches()) {
 			this.addFieldError("userPhone", "联系电话输入有误!");
 
 		}
+		*/
 
 	}
 
